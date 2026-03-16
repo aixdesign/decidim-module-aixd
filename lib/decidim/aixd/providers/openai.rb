@@ -6,9 +6,9 @@ module Decidim
       class OpenAI < Base
         DEFAULT_MODEL = "gpt-4o"
 
-        def summarize(source:, locale:, max_length: nil, prompt: "")
+        def summarize(source:, locale:, max_length: nil, prompt: "")          
           length_hint = max_length ? "in #{max_length} characters or fewer" : ""
-          user_msg = build_prompt(prompt, "Summarize the following text #{length_hint} in #{locale}:", source)
+          user_msg = build_prompt(prompt, "Summarize the following text #{length_hint}, translating to locale '#{locale}' if necessary:", source)
           chat(user_msg)
         end
 

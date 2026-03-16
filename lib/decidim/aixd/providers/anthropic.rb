@@ -8,6 +8,8 @@ module Decidim
         MAX_TOKENS = 4096
 
         def summarize(source:, locale:, max_length: nil, prompt: "")
+          return NotImplementedError # This is a draft, not tested yet
+
           length_hint = max_length ? "in #{max_length} characters or fewer" : ""
           message(build_prompt(prompt, "Summarize the following text #{length_hint} in #{locale}:", source))
         end
