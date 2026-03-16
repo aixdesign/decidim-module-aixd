@@ -1,0 +1,25 @@
+<%= decidim_form_tag decidim_aixd.summary_path, method: :post do %>
+  <div class="row column">
+    <h1 class="h2">Summarize text with AI</h1>
+
+    <div class="form-field">
+      <%= label_tag :text, "Text to summarize" %>
+      <%= text_area_tag :text, nil, rows: 10, class: "input-group-field", placeholder: "Paste any text here…", required: true %>
+    </div>
+
+    <div class="form-field">
+      <%= label_tag :locale, "Locale" %>
+      <%= text_field_tag :locale, I18n.locale, class: "input-group-field", placeholder: "en" %>
+    </div>
+
+    <div class="form-field">
+      <%= label_tag :prompt, "Custom prompt (optional)" %>
+      <%= text_field_tag :prompt, nil, class: "input-group-field",
+            placeholder: "Summarize the following text concisely." %>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag "Summarize", class: "button" %>
+    </div>
+  </div>
+<% end %>

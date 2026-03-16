@@ -1,0 +1,15 @@
+<div class="row column">
+  <h1 class="h2">Summary result</h1>
+
+  <% if @error %>
+    <div class="callout alert">
+      <strong>Error:</strong> <%= @error %>
+    </div>
+  <% else %>
+    <div class="callout success">
+      <p><%= @summary %></p>
+    </div>
+  <% end %>
+
+  <%= link_to "Try another", decidim_aixd.new_summary_path, class: "button hollow" %>
+</div>
