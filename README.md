@@ -116,6 +116,14 @@ Decidim::AIXD::Summarize.call(
 
 A summarization form is available at `/aixd/summarize` once the engine is mounted.
 
+## Future directions
+
+Once the module is proven and mature, different integration strategies will be considered:
+
+1. **Merge into decidim-ai** — contribute this module's functionality into the core `decidim-ai` gem, subject to community approval.
+2. **Keep it separate** — continue developing AI + Design enhancements independently, outside the Decidim core module ecosystem.
+3. **Join forces** — identify other modules tackling similar problems and combine efforts.
+
 ## Requirements
 
 - Ruby >= 3.0
