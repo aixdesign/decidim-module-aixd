@@ -11,6 +11,10 @@ module Decidim
       routes do
         get  "summarize",       to: "summaries#new",    as: :new_summary
         post "summarize",       to: "summaries#create",  as: :summary
+
+        namespace :account do
+          resource :ai_preferences, only: %i[edit update]
+        end
       end
 
       initializer "decidim_aixd.autoload", before: :load_config_initializers do

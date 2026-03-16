@@ -2,6 +2,7 @@
 
 require "decidim/aixd/version"
 require "decidim/aixd/configuration"
+require "decidim/aixd/consent_checker"
 
 require "decidim/aixd/providers/base"
 require "decidim/aixd/providers/openai"
@@ -13,6 +14,7 @@ require "decidim/aixd/engine"
 module Decidim
   module AIXD
     class Error < StandardError; end
+    class ConsentError < Error; end
     class ProviderError < Error; end
 
     class << self
@@ -24,8 +26,8 @@ module Decidim
         yield configuration
       end
 
-      def provider
-        configuration.provider
+      def provider_for(feature)
+        configuration.provider_for(feature)
       end
 
       def reset_configuration!

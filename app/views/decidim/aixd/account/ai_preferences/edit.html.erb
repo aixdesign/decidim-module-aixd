@@ -1,0 +1,35 @@
+<%= content_for :title, t("decidim.aixd.account.ai_preferences.title") %>
+
+<div class="row">
+  <div class="columns medium-8">
+    <h1 class="h2"><%= t("decidim.aixd.account.ai_preferences.title") %></h1>
+    <p class="text-muted"><%= t("decidim.aixd.account.ai_preferences.description") %></p>
+
+    <%= form_with url: account_ai_preferences_path, method: :patch do |form| %>
+      <fieldset class="fieldset">
+        <% @consents.each do |feature, enabled| %>
+          <div class="row column">
+            <div class="switch">
+              <input class="switch-input"
+                     id="ai_preferences_<%= feature %>"
+                     type="checkbox"
+                     name="ai_preferences[<%= feature %>]"
+                     value="1"
+                     <%= "checked" if enabled %>>
+              <label class="switch-paddle" for="ai_preferences_<%= feature %>">
+                <span class="show-for-sr"><%= t("decidim.aixd.account.ai_preferences.features.#{feature}") %></span>
+              </label>
+            </div>
+            <label class="middle" for="ai_preferences_<%= feature %>">
+              <%= t("decidim.aixd.account.ai_preferences.features.#{feature}") %>
+            </label>
+          </div>
+        <% end %>
+      </fieldset>
+
+      <div class="actions">
+        <%= form.submit t("decidim.aixd.account.ai_preferences.update"), class: "button" %>
+      </div>
+    <% end %>
+  </div>
+</div>

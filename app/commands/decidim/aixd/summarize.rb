@@ -9,15 +9,19 @@ module Decidim
       # @param locale    [Symbol] target locale for the summary
       # @param max_length [Integer, nil] optional character cap
       # @param prompt    [String] optional custom system prompt
-      def initialize(text:, locale: I18n.locale, max_length: nil, prompt: "")
+      # @param context   [Object, nil] optional resource context for consent check
+      def initialize(text:, locale: I18n.locale, max_length: nil, prompt: "", context: nil)
         @text       = text
         @locale     = locale
         @max_length = max_length
         @prompt     = prompt
+        @context    = context
       end
 
       def call
-        result = Decidim::AIXD.provider.summarize(
+        return broadcast(:consent_refused) unless ConsentChecker.permitted?(feature: :summarization, context: @context)
+
+        result = Decidim::AIXD.provider_for(:summarization).summarize(
           source:     @text,
           locale:     @locale,
           max_length: @max_length,

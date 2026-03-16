@@ -10,6 +10,7 @@ Decidim::Dev.dummy_app_path = File.expand_path(
 require "decidim/dev/test/base_spec_helper"
 
 require "decidim/aixd"
+require_relative "factories"
 
 RSpec.configure do |config|
   config.after do

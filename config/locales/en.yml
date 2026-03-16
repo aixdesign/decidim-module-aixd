@@ -1,0 +1,25 @@
+en:
+  decidim:
+    aixd:
+      menu:
+        ai_preferences: "AI Preferences"
+      errors:
+        consent_refused: "AI processing for this content has been disabled by your preferences or platform settings."
+        provider_error: "AI processing failed. Please try again later."
+      account:
+        ai_preferences:
+          title: "AI Preferences"
+          description: "Control how AI features process your content on this platform."
+          features:
+            summarization: "Summarization"
+            translation: "Translation"
+            transcription: "Transcription"
+            tagging: "Topic tagging"
+            topic_detection: "Topic detection"
+            key_questions: "Key question extraction"
+          opted_out: "Disabled"
+          opted_in: "Enabled"
+          update: "Save preferences"
+          updated: "Your AI preferences have been saved."
+      badges:
+        ai_translated: "AI-translated"
